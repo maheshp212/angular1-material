@@ -1,0 +1,190 @@
+<div>
+ <h1 style="color:red;"> Red Page </h1>
+ {{a}}
+</div>
+<div ng-controller="DemoCtrl as ctrl" layout="column" ng-cloak>
+  <md-content class="md-padding">
+    <form ng-submit="$event.preventDefault()">
+      <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
+      <md-autocomplete
+          ng-disabled="ctrl.isDisabled"
+          md-no-cache="ctrl.noCache"
+          md-selected-item="ctrl.selectedItem"
+          md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+          md-search-text="ctrl.searchText"
+          md-selected-item-change="ctrl.selectedItemChange(item)"
+          md-items="item in ctrl.querySearch(ctrl.searchText)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="What is your favorite US state?">
+        <md-item-template>
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+        </md-item-template>
+        <md-not-found>
+          No states matching "{{ctrl.searchText}}" were found.
+          <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+        </md-not-found>
+      </md-autocomplete>
+      <br/>
+      <md-checkbox ng-model="ctrl.simulateQuery">Simulate query for results?</md-checkbox>
+      <md-checkbox ng-model="ctrl.noCache">Disable caching of queries?</md-checkbox>
+      <md-checkbox ng-model="ctrl.isDisabled">Disable the input?</md-checkbox>
+
+      <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+    </form>
+  </md-content>
+</div>
+
+
+<md-button class="md-primary">Click me</md-button>
+<md-button class="md-accent">or maybe me</md-button>
+<md-button class="md-warn">Careful</md-button>
+
+<md-button class="md-primary">Click me</md-button>
+<md-button class="md-primary md-hue-1">Click me</md-button>
+<md-button class="md-primary md-hue-2">Click me</md-button>
+ <style>
+     .box {         
+      color:white;
+      padding:10px;
+      text-align:center;
+      border-style: inset;
+     }
+     .green {
+         background:green;
+     }
+     .blue {
+         background:blue;
+     }
+    </style>
+<div layout="row" layout-xs="column">
+            <div flex class="green box">Row 1: Item 1</div>
+            <div flex="20" class="blue box">Row 1: Item 2</div>
+         </div>
+         <div layout="column" layout-xs="row">
+            <div flex="33" class="green box">Column 1: item 1</div>
+            <div flex="66" class="blue box">Column 1: item 2</div>
+         </div>
+      </div>
+
+
+<div layout="row">
+  <div flex>First item in row</div>
+  <div flex>Second item in row</div>
+  <div flex>third item in row</div>
+  <div layout="column">
+  <div flex>First item in column</div>
+  <div flex>Second item in column</div>
+</div>
+</div>
+<div layout="column">
+  <div flex>First item in column</div>
+  <div flex>Second item in column</div>
+</div>
+
+
+
+<div ng-controller="BottomSheetExample" class="md-padding" ng-cloak>
+  <h2 class="md-title">Usage</h2>
+  <p>Bottom sheets can be displayed by clicking one of the buttons below.  Once shown, it can be
+  dismissed by either swiping down or clicking in the shaded area.</p>
+  <h2 class="md-title">Actions</h2>
+  <p>Use one of the following buttons to display a bottom sheet.</p>
+  <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center" >
+    <md-button flex="50" class="md-primary md-raised" ng-click="showListBottomSheet()">Show as List</md-button>
+    <md-button flex="50" class="md-primary md-raised" ng-click="showGridBottomSheet()">Show as Grid</md-button>
+  </div>
+
+  <div ng-if="alert">
+    <br/>
+    <b layout="row" layout-align="center center" class="md-padding">
+      {{alert}}
+    </b>
+  </div>
+</div>
+
+
+
+
+<md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
+  <div layout-gt-xs="row">
+    <div flex-gt-xs>
+      <h4>Standard date-picker</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+    </div>
+
+    <div flex-gt-xs>
+      <h4>Disabled date-picker</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" disabled></md-datepicker>
+    </div>
+  </div>
+
+  <div layout-gt-xs="row">
+    <div flex-gt-xs>
+      <h4>Opening the calendar when the input is focused</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+    </div>
+
+    <div flex-gt-xs>
+      <h4>Date-picker that goes straight to the year view</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-current-view="year" md-placeholder="Enter date"></md-datepicker>
+    </div>
+  </div>
+
+  <div layout-gt-xs="row">
+    <div flex-gt-xs>
+      <h4>Custom calendar trigger</h4>
+      <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" md-is-open="ctrl.isOpen"></md-datepicker>
+      <md-button class="md-primary md-raised" ng-click="ctrl.isOpen = true">Open</md-button>
+    </div>
+  </div>
+
+
+
+   <md-grid-list class="gridListdemoBasicUsage"
+        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+
+    <md-grid-tile class="gray"
+        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <md-grid-tile-footer>
+        <h3>#1: (3r x 2c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="green">
+      <md-grid-tile-footer>
+        <h3>#2: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="yellow">
+      <md-grid-tile-footer>
+        <h3>#3: (1r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="blue"
+        md-rowspan="2">
+      <md-grid-tile-footer>
+        <h3>#4: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="red"
+        md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+      <md-grid-tile-footer>
+        <h3>#5: (2r x 2c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+    <md-grid-tile class="green"
+        md-rowspan="2" >
+      <md-grid-tile-footer>
+        <h3>#6: (2r x 1c)</h3>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+
+  </md-grid-list>
+</md-content>

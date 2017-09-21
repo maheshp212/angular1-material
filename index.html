@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample Angular App</title>
+	<!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css"> -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body ng-app="sample-app" ng-controller="mainAppCtrl">
+
+	<h1> Hello, this message is from root.
+	<h3> <a href="#/red"> Red </a> <a href="#/green"> Green </a> </h3>
+	<div ng-view> </div>
+	<script type="text/javascript" src="./libs/angular/angular.min.js"></script>
+	<script type="text/javascript" src="./libs/angular/angular-route.min.js"></script>
+	<script src="./libs/angular/angular-animate.min.js"></script>
+    <script src="./libs/angular/angular-aria.min.js"></script>
+
+
+    <!-- AngularJS Material Javascript now available via Google CDN; version 1.0.7 used here -->
+    <!-- Ref. Link : https://github.com/angular/material#installing -->
+    <script src="./libs/material/angular-material.min.js"></script>
+  
+	
+	<script type="text/javascript" src="./app.js"></script>
+	<script type="text/javascript" src="./app-controller.js"></script>
+	<script type="text/javascript" src="./app-filters.js"></script>
+	<script type="text/javascript" src="./app-functions.js"></script>
+	<script type="text/javascript" src="./app-service.js"></script>
+
+	<script type="text/javascript" src="./modules/red/red-controller.js"></script>
+	<script type="text/javascript" src="./modules/green/green-controller.js"></script>
+</body>
+</html>
